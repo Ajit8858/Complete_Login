@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: login-app
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install && cd ../frontend && npm install && npm run build
+    startCommand: cd backend && node server.js
+    rootDir: .
+    envVars:
+      - key: MONGO_URI
+        value: your-mongodb-uri-here
+      - key: JWT_SECRET
+        value: your-secret-key-here
